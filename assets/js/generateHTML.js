@@ -84,3 +84,91 @@ const generateInternCard = (intern) => {
       </div>
   `
 }
+
+// Create HTML 
+
+const generateHTML = (data) => {
+
+  // Card Array
+
+  pageArray = [];
+
+  // Manager Card
+
+  for (let i = 0; i < data.manager.length; i++) {
+    pageArray.push(generateManagerCard(data.manager[i]))
+  }
+
+  // Engineer Card
+
+  for (let i = 0; i < data.engineer.length; i++) {
+    pageArray.push(generateEngineerCard(data.engineer[i]))
+  }
+
+  // Intern Card
+
+  for (let i = 0; i < data.intern.length; i++) {
+    pageArray.push(generateInternCard(data.intern[i]))
+  }
+
+  // Join Cards
+
+  const employeeCards = pageArray.join('');
+  const generateTeam = generateTeamPage(employeeCards);
+  return generateTeam;
+}
+
+// Export HTML
+
+module.exports = generateHTML;
+
+// Generate Team Page
+
+const generateTeamPage = (employeeCards) => {
+
+  return `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Profile Generator</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1 w-100 text-center">My Team</span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          ${employeeCards}
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </html>
+  `;
+
+
+
+}
