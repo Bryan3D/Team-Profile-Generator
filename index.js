@@ -2,7 +2,10 @@
 const require = require('inquirer')
 const fs = require('fs');
 const generateHTML = require('./assets/js/generateHTML.js');
-const { default: inquirer } = require('inquirer');
+const Manager = require('./library/Manager');
+const Engineer = require('./library/Engineer');
+const Intern = require('./library/Intern');
+
 
 // Array of questions for user input
 const teamMembers = [];
@@ -44,10 +47,10 @@ const managerInputsData = () => {
         // email Input
 
         
-        {
+            {
             type: 'input',
             name: 'email',
-            message: "Please enter the team manager email.",
+            message: `Please enter the team manager email.`,
             validate: emailInput => {
                 if (emailInput){
                     return true; 
@@ -56,10 +59,10 @@ const managerInputsData = () => {
                     return false;
                 }
             }
-        },
+            },
 
         //  Github address link 
-        {
+            {
             type: 'input',
             name: 'git',
             message: 'What is the Github address of the team manager? (Required)',
