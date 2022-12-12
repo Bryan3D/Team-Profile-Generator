@@ -6,7 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Project Description](#project-description)
   - [Installation and Test Instructions](#installation-and-test-instructions)
-  - [Team Profile Generator Demo Image](#team-profile-generator-demo-image)
+  - [Team Profile Generator Image](#team-profile-generator-image)
   - [Team Profile Generator Demo Video](#team-profile-generator-demo-video)
   - [Inquire](#inquire)
   - [License](#license)
@@ -23,13 +23,10 @@ This application relies on a file system and inquirer module. If testing is requ
 
 Run npm test to run Jest for tests on constructors.
 
-## Team Profile Generator Demo Image
+## Team Profile Generator Image
 
 ---
-
-![2022-12-12 14_00_02-Team Profile Generator](https://user-images.githubusercontent.com/10051887/207131454-9760a443-aedd-44cc-b36b-15c25caf0c8c.png)
-
----
+[TODO:] Image demo is here
 
 ## Team Profile Generator Demo Video
 
