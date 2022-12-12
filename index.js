@@ -1,5 +1,5 @@
 // Requirer links
-const require = require('inquirer')
+const require = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./assets/js/generateHTML.js');
 const Manager = require('./library/Manager');
