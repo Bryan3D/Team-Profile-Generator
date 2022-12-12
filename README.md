@@ -6,7 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Project Description](#project-description)
   - [Installation and Test Instructions](#installation-and-test-instructions)
-  - [Team Profile Generator Image](#team-profile-generator-image)
+  - [Team Profile Generator Demo Image](#team-profile-generator-demo-image)
   - [Team Profile Generator Demo Video](#team-profile-generator-demo-video)
   - [Inquire](#inquire)
   - [License](#license)
@@ -23,7 +23,7 @@ This application relies on a file system and inquirer module. If testing is requ
 
 Run npm test to run Jest for tests on constructors.
 
-## Team Profile Generator Image
+## Team Profile Generator Demo Image
 
 ---
 
