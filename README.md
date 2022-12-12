@@ -26,7 +26,8 @@ Run npm test to run Jest for tests on constructors.
 ## Team Profile Generator Image
 
 ---
-[TODO:] Image demo is here
+
+![Alt text](assets/img/2022-12-12%2014_00_02-Team%20Profile%20Generator.png)
 
 ## Team Profile Generator Demo Video
 
@@ -42,4 +43,4 @@ Feel free to contact me at bryanq2008@live.com with any questions about this pro
 ## License
 
 ---
-MIT License Copyright (c) 2022 Bryan Alec Quero.
+MIT License Copyright (c) 2022 by Bryan Alec Quero.
