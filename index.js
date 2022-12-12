@@ -42,24 +42,20 @@ const managerInputsData = () => {
             },
 
         // email Input
+
+        
         {
             type: 'input',
             name: 'email',
-            message: "Please enter the manager email.",
-            _validate: emailInput => {
-                if (emailInput) {
-                    return true;
-                } else {
+            message: "Please enter the team manager email.",
+            validate: emailInput => {
+                if (emailInput){
+                    return true; 
+            }else {
                     console.log('Please enter the email of the team manager!');
                     return false;
                 }
-            },
-            get validate() {
-                return this._validate;
-            },
-            set validate(value) {
-                this._validate = value;
-            },
+            }
         },
 
         //  Github address link 
@@ -146,7 +142,7 @@ const buildTeam = () => {
             name: 'email',
             message: "Please enter the new team member email.",
             _validate: emailInput => {
-                valid = 
+                
                 if (emailInput) {
                     return true;
                 } else {

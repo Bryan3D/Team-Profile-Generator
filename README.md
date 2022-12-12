@@ -2,8 +2,6 @@
 
 ## Table of Contents
 
---
-
 - [Team Profile Generator App 🖼️](#team-profile-generator-app-️)
   - [Table of Contents](#table-of-contents)
   - [Project Description](#project-description)
