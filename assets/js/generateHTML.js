@@ -172,3 +172,6 @@ const generateTeamPage = (employeeCards) => {
 
 
 }
+
+generateTeamPage();
+
