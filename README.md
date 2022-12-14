@@ -34,7 +34,11 @@ Run npm test to run Jest for tests on constructors.
 ---
 
 [TODO:] Video is here
-![alt text](<iframe src="https://drive.google.com/file/d/10bj6Uuu81M3nEr_Cv-f7WzXebfWwZAgF/preview" width="640" height="480"></iframe>)
+
+
+https://user-images.githubusercontent.com/10051887/207480730-066f6aac-baa1-4d68-b595-4fbc32c0689b.mp4
+
+
 
 ## Inquire
 
