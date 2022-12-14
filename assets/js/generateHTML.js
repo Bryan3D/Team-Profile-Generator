@@ -1,12 +1,11 @@
 
 // Create Manager Card
 
-const generateManagerCard = (manager) => {
+const generateManagerCard = function(manager) {
     return `
-    <div class="manager-card col-4 mt-4">
-            <div class="card h-100">
-            
-            <div class="card-header text-white bg-dark">
+    <div class="manager-card col-4 mt-4 mx-2">
+    <div class="card h-100">
+    <div class="card-header text-white bg-dark">
                 
                 <h3>${manager.name}</h3>
                 <h4>Manager</h4>
@@ -26,46 +25,13 @@ const generateManagerCard = (manager) => {
 `
 }
 
-// Create Engineer Card
-
-const generateEngineerCard = (engineer) => {
-    return `
-    <div class="engineer-card col-4 mt-4">
-            <div class="card h-100">
-            <div class="card-header text-white bg-dark">
-                <h3>${engineer.name}</h3>
-                <h4>Engineer</h4>
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                class="bi bi-eyeglasses"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
-                />
-              </svg>
-              </div>
-
-              <div class="card-body text-dark">
-                <p class="employeeId>Employee ID:${engineer.id}</p>
-                <p class="email">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p class="gitHub">GitHub:<a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
-              </div>
-            </div>
-          </div>
-          `
-}
-
 // Create Intern Card
 
-const generateInternCard = (intern) => {
+const generateInternCard = function (intern) {
   return `
-  <div class="col-4 mt-4 mx-2">
-            <div class="card h-100">
-              <div class="card-header text-white bg-dark">
+  <div class="inter-card col-4 mt-4 mx-2">
+  <div class="card h-100">
+  <div class="card-header text-white bg-dark">
                 <h3>${intern.name}</h3>
                 <h4>Inter</h4>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
@@ -85,93 +51,153 @@ const generateInternCard = (intern) => {
   `
 }
 
+// Create Engineer Card
+
+const generateEngineerCard = function (engineer) {
+    return `
+    <div class="engineer-card col-4 mt-4">
+    <div class="card h-100">
+    <div class="card-header text-white bg-dark">
+                <h3>${engineer.name}</h3>
+                <h4>Engineer</h4>
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                class="bi bi-eyeglasses"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                />
+              </svg>
+              </div>
+              <div class="card-body text-dark">
+                <p class="employeeId>Employee ID:${engineer.id}</p>
+                <p class="email">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                <p class="gitHub">GitHub:<a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+              </div>
+            </div>
+          </div>
+          `
+}
+
+
+
 // Create HTML 
 
-const generateHTML = (data) => {
+generateHTML = (data) => {
 
   // Card Array
 
-  pageArray = [];
+  htmlArr = [];
 
   // Manager Card
 
-  for (let i = 0; i < data.manager.length; i++) {
-    pageArray.push(generateManagerCard(data.manager[i]))
+  for (let i = 0; i < data.length; i++) {
+    const employee = data[i];
+    const role = employee.getRole();
+
+    // Manager Card
+
+    if (role === "Manager") {
+      const managerCard = generateManagerCard(employee);
+
+      htmlArr.push(managerCard);
+    }
+    
+    // Engineer Card
+
+    if (role === "Engineer") {
+      const engineerCard = generateEngineerCard(employee);
+
+      htmlArr.push(engineerCard);
+    }
+
+    // Intern Card
+
+    if (role === "Intern") {
+      const internCard = generateInternCard(employee);
+      
+      htmlArr.push(internCard);
+    }
   }
 
-  // Engineer Card
 
-  for (let i = 0; i < data.engineer.length; i++) {
-    pageArray.push(generateEngineerCard(data.engineer[i]))
-  }
+  const teamCards = htmlArr.join("")
 
-  // Intern Card
 
-  for (let i = 0; i < data.intern.length; i++) {
-    pageArray.push(generateInternCard(data.intern[i]))
-  }
-
-  // Join Cards
-
-  const employeeCards = pageArray.join('');
-  const generateTeam = generateTeamPage(employeeCards);
+  const generateTeam = generateTeamPage(teamCards);
   return generateTeam;
+  
 }
+
+
+// Generate Team Page
+ 
+const generateTeamPage = function (teamCards) {
+  return `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="./assets/css/style.css" />
+      <title>Team Profile Generator</title>
+    </head>
+    <body>
+      <header>
+      <div class="jumbotron">
+      <h1 class="display-4 text-center">Team Members Profile</h1>
+      <hr class="my-4" />
+      
+      </div>
+      
+      <main>
+      <div class="container">
+      <div class="col-4 mb-0 mt-4 mx-2 w-100">
+      
+            ${teamCards}
+        
+          </div>
+        </div>
+        <footer class="footer">
+        <div class="container">
+          <span class="text-muted">©2022 by Bryan A Quero</span>
+        </div>    
+      </footer>
+      </main>
+      </header>
+    </body>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+  </html>
+  `;
+};
+
+
+
 
 // Export HTML
 
 module.exports = generateHTML;
 
-// Generate Team Page
-
-const generateTeamPage = (employeeCards) => {
-
-  return `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Profile Generator</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- CSS only -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1 w-100 text-center">My Team</span>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div class="container">
-        <div class="row justify-content-center">
-          ${employeeCards}
-        </div>
-      </div>
-    </main>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </html>
-  `;
-
-
-
-}
-
-generateTeamPage();
 
