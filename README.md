@@ -33,8 +33,6 @@ Run npm test to run Jest for tests on constructors.
 
 ---
 
-[TODO:] Video is here
-
 
 https://user-images.githubusercontent.com/10051887/207480730-066f6aac-baa1-4d68-b595-4fbc32c0689b.mp4
 
