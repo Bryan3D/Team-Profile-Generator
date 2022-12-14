@@ -26,8 +26,9 @@ Run npm test to run Jest for tests on constructors.
 ## Team Profile Generator Demo Image
 
 ---
+![2022-12-13 20_20_52-Abigail Limpioso (TA) - UCF-VIRT-FSF-PT-09-2022-U-LOLC - Slack](https://user-images.githubusercontent.com/10051887/207481656-613516b1-de97-412c-905e-31c69dbaf6a5.png)
 
-![Alt text](assets/img/2022-12-12%2014_00_02-Team%20Profile%20Generator.png)
+
 
 ## Team Profile Generator Demo Video
 
