@@ -16,8 +16,8 @@ const generateManagerCard = function(manager) {
               </div>
 
               <div class="card-body text-dark">
-                <p class="managerID">Employee ID: 007</p>
-                <p class="managerEmail">Email:<a href="mailto:${manager.email}">${manager.managerEmail}</a></p>
+                <p class="managerID">Employee ID:${manager.id}</p>
+                <p class="managerEmail">Email:<a href="mailto:${manager.email}">${manager.email}</a></p>
                 <p class="officeNumber">Office Number: ${manager.officeNumber}</p>
               </div>
             </div>
@@ -42,7 +42,7 @@ const generateInternCard = function (intern) {
               <div class="card-body text-dark">
                 <p class="engineerId">Employee ID:${intern.id}</p>
                 <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
-                <p class="git">Github: <a href="https://github.com/${intern.github}">${intern.github}</a></p>
+                <p class="intern-school">School:${intern.school}</p>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const generateEngineerCard = function (engineer) {
               <div class="card-body text-dark">
                 <p class="employeeId>Employee ID:${engineer.id}</p>
                 <p class="email">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p class="gitHub">GitHub:<a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+                <p class="gitHub">GitHub:<a href="https://github.com/${engineer.github}"> ${engineer.github} </a></p>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ const generateTeamPage = function (teamCards) {
       
       <main>
       <div class="container">
-      <div class="col-4 mb-0 mt-4 mx-2 w-100">
+      <div class=" row justify-content-center col-4 mb-0 mt-4 mx-2 w-100 ">
       
             ${teamCards}
         

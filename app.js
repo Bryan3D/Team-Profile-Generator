@@ -144,7 +144,7 @@ const addTeamMember = () => {
                 if (nameInput ) {
                     return true;
                 } else {
-                    console.log ("Please enter the employee's github username!")
+                    console.log ("Please enter the team member github username!")
                 }
             }
         },
